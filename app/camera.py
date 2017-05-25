@@ -1,14 +1,19 @@
-from time import time
-import os
+from flask import Response, stream_with_context
+import requests
+import abc
 
-script_dir = os.path.dirname(__file__)
+class CameraBase(object):
+	__metaclass__ = abc.ABCMeta
 
-class TestCamera(object):
-    """An emulated camera implementation that streams a repeated sequence of
-    files 1.jpg, 2.jpg and 3.jpg at a rate of one frame per second."""
+	@abc.abstractmethod
+	def get_stream(self):
+		pass
 
-    def __init__(self):
-        self.frames = [open(os.path.join(script_dir, './mocks/' + f) + '.jpg', 'rb').read() for f in ['mock-1', 'mock-2', 'mock-3']]
+class ExternalCamera(CameraBase):
 
-    def get_frame(self):
-        return self.frames[int(time()) % 3]
+	def __init__(self, stream_url):
+		self.stream_url = stream_url
+
+	def get_stream(self):
+		req = requests.get(self.stream_url, stream=True)
+		return Response(stream_with_context(req.iter_content(chunk_size=256)), content_type=req.headers['content-type'])

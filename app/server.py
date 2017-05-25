@@ -1,34 +1,22 @@
 from flask import Flask, render_template, Response
-
-# emulated camera
-from camera import TestCamera
-
-# Raspberry Pi camera module (requires picamera package)
-# from camera_pi import Camera
+from camera import ExternalCamera
+from config import config
+import os
 
 app = Flask(__name__)
-
+config_level = os.getenv('FLASK_CONFIGURATION', 'default')
+app.config.from_object(config[config_level])
 
 @app.route('/')
 def index():
-    """Video streaming home page."""
+    """Dashboard"""
     return render_template('index.html')
-
-
-def gen(camera):
-    """Video streaming generator function."""
-    while True:
-        frame = camera.get_frame()
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-
 
 @app.route('/camera_stream')
 def camera_stream():
     """Video streaming route. Put this in the src attribute of an img tag."""
-    return Response(gen(TestCamera()),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
-
+    camera = ExternalCamera(app.config['STREAM_URL'])
+    return camera.get_stream()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, threaded=True)

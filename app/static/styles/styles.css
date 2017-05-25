@@ -55,17 +55,6 @@ html {
 	align-items: center;
 }
 
-.main-content .video-container {
-	width: 90%;
-	max-height: 800px;
-	overflow: auto;
-}
-
-.main-content .video-container .camera-stream {
-	height: 100%;
-	width: 100%;
-}
-
 .left-container {
 	width: 75%;
 	height: 100%;
