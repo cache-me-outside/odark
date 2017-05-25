@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(
-    name="Object Detection and Classification Kit (ODACK)",
+    name="Object Detection and Recognition Kit (ODARK)",
     version="0.1.0",
     url="",
 
