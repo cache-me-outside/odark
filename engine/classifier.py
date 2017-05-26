@@ -2,19 +2,6 @@ from darkflow.net.build import TFNet
 import os
 import cv2
 
-# options = {"model": "/Users/tylerriedal/Code/odark/engine/model/tiny-yolo-voc.cfg",
-# "load": "/Users/tylerriedal/Code/odark/engine/model/tiny-yolo-voc.weights", "threshold": 0.1}
-# tfnet = TFNet(options)
-
-
-# imgcv = cv2.imread("/Users/tylerriedal/Code/odark/engine/dog.jpg")
-# # import pdb; pdb.set_trace()
-# t0 = time.time()
-# result = tfnet.return_predict(imgcv)
-# t1 = time.time()
-# print(result)
-# print (t1-t0)
-
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Classifier(object):

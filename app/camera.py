@@ -16,6 +16,7 @@ class ExternalCamera(CameraBase):
 
 	@staticmethod
 	def _process_stream(content):
+		# TOOD: Currently just a pass through. This needs to somehow buffer chunks until an image is captured.
 		for chunk in content:
 			if chunk:
 				yield chunk
