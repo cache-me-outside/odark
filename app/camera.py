@@ -14,6 +14,13 @@ class ExternalCamera(CameraBase):
 	def __init__(self, stream_url):
 		self.stream_url = stream_url
 
+	@staticmethod
+	def _process_stream(content):
+		for chunk in content:
+			if chunk:
+				yield chunk
+
 	def get_stream(self):
 		req = requests.get(self.stream_url, stream=True)
-		return Response(stream_with_context(req.iter_content(chunk_size=256)), content_type=req.headers['content-type'])
+		return Response(stream_with_context(self._process_stream(req.iter_content(chunk_size=256))),
+					content_type=req.headers['content-type'])
