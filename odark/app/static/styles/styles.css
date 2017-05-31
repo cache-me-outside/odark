@@ -1,0 +1,109 @@
+html {
+	color: white;
+	font-family: helvetica;
+}
+
+.container { 
+	background: url(../../static/assets/bg-blur.jpg) no-repeat center center fixed;
+	background-size: cover;
+	/*  -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);*/
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.overlay {
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: rgba(0, 35, 0, 0.7);
+}
+
+.logo {
+	font-size: 48px;
+	margin: 20px;
+	float: left;
+	width: 100%
+}
+
+.logo .sub-logo {
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: 300;
+	color: rgb(237, 174, 20);
+}
+
+.main-content {
+	float: left;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.left-container {
+	width: 75%;
+	height: 100%;
+	float: left;
+}
+
+.sidebar-container {
+	border-bottom: 3px solid rgba(255, 255, 255, .1);
+}
+
+.sidebar-container-row {
+	padding: 10px 25px;
+}
+
+.sidebar-container-row div {
+	display: inline-block;
+}
+
+.sidebar-right {
+	height: 100%;
+	width: 25%;
+	float: right;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.generic-data {
+	font-size: 24px;
+	line-height: 1.5;
+	width: 50%;
+	font-weight: 600;
+}
+
+.generic-data .title {
+	display: block;
+	font-size: 16px;
+	font-weight: 300;
+}
+
+.row-container-right {
+	float: right;
+}
+
+.generic-data.flight-data {
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.generic-data.flight-data div.title {
+	font-size: 24px;
+	font-weight: 700;
+}
+

@@ -1,0 +1,29 @@
+import os
+
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+
+class Config(object):
+    DEBUG = False
+    TESTING = False
+
+
+class ProductionConfig(Config):
+    STREAM_URL = '[prod_url]'
+
+class DevelopmentConfig(Config):
+    DEBUG = True
+    STREAM_URL = 'http://202.142.12.54/nphMotionJpeg?Resolution=800x600&Quality=Clarity'
+
+
+class TestingConfig(Config):
+    TESTING = True
+
+
+config = {
+    'production': ProductionConfig,
+    'development': DevelopmentConfig,
+    'testing': TestingConfig,
+    'default': DevelopmentConfig,
+}

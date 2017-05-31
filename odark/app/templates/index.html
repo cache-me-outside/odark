@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>ODARK</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+  </head>
+  <body>
+  	<div class="container">
+  		<div class="overlay">
+  			<div class="left-container">
+	  			<div class="logo">
+	  				<div>O.D.A.R.K</div>
+	  				<div class="sub-logo">Object Detection and Recognition Kit</div>
+	  			</div>
+	  			<div class="main-content">
+	  				<div class="video-container">
+	  					<img class="camera-stream" src="{{ url_for('dashboard.video_feed') }}">
+	  				</div>
+	  			</div>	
+  			</div>
+  			<div class="sidebar-right">
+  				<div class="sidebar-container">
+  					<div class="sidebar-container-row">
+  						<div class="row-container-left generic-data">
+  							<div class="title">Altitude</div>25 km
+  						</div>
+  						<div class="row-container-right generic-data">
+  							<div class="title">Battery</div>78%
+  						</div>
+  					</div>
+  					<div class="sidebar-container-row">
+  						<div class="row-container-left generic-data">
+  							<div class="title">Weight</div>50 kg
+  						</div>
+  						<div class="row-container-right generic-data">
+  							<div class="title">Airframe</div>Drone
+  						</div>
+  					</div>
+  				</div>
+ 				<div class="sidebar-container">
+  					<div class="sidebar-container-row">
+  						<div class="row-container-left generic-data flight-data">
+  							<div class="title">14 km</div>Overall Distance
+  						</div>
+  						<div class="row-container-right generic-data flight-data">
+  							<div class="title">10.25 km</div>Last Flight
+  						</div>
+  					</div>
+  					<div class="sidebar-container-row">
+  						<div class="row-container-left generic-data flight-data">
+  							<div class="title">20:12:43</div>Overall Flight Time
+  						</div>
+  						<div class="row-container-right generic-data flight-data">
+  							<div class="title">14</div>Flights
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </body>
+</html>
