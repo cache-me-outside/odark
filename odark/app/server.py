@@ -1,15 +1,11 @@
-from flask import Flask, render_template, Response
+from flask import render_template, Response, Blueprint, current_app as app
 from camera import VideoCamera
-from config import config
-# from engine.classifier import Classifier
+from ..engine.classifier import Classifier
 # TODO: Why in the mother fuck does ^^^ not import Classifier
-import os
 
-app = Flask(__name__)
-config_level = os.getenv('FLASK_CONFIGURATION', 'default')
-app.config.from_object(config[config_level])
+dashboard = Blueprint('dashboard', __name__)
 
-@app.route('/')
+@dashboard.route('/')
 def index():
     """Dashboard"""
     return render_template('index.html')
@@ -20,7 +16,7 @@ def gen(camera):
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + camera.encode_frame(frame) + b'\r\n\r\n')
 
-@app.route('/video_feed')
+@dashboard.route('/video_feed')
 def video_feed():
     return Response(gen(VideoCamera(app.config['STREAM_URL'])),
                     mimetype='multipart/x-mixed-replace; boundary=frame')

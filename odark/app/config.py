@@ -14,7 +14,7 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    STREAM_URL = 'http://206.140.121.226/mjpg/video.mjpg'
+    STREAM_URL = 'http://airportcam.puc.edu/-wvhttp-01-/getoneshot?camera_id=1&frame_count=no_limit'
 
 
 class TestingConfig(Config):
