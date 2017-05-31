@@ -1,9 +1,9 @@
 from flask import render_template, Response, Blueprint, current_app as app
 from camera import VideoCamera
-from ..engine.classifier import Classifier
-# TODO: Why in the mother fuck does ^^^ not import Classifier
+from odark.engine.classifier import Classifier
 
 dashboard = Blueprint('dashboard', __name__)
+clf = Classifier()
 
 @dashboard.route('/')
 def index():
@@ -13,8 +13,10 @@ def index():
 def gen(camera):
     while True:
         frame = camera.get_frame()
+        predictions = clf.get_prediction(frame)
+        frame_with_rects = clf.draw_predictions(frame, predictions)
         yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + camera.encode_frame(frame) + b'\r\n\r\n')
+               b'Content-Type: image/jpeg\r\n\r\n' + camera.encode_frame(frame_with_rects) + b'\r\n\r\n')
 
 @dashboard.route('/video_feed')
 def video_feed():
