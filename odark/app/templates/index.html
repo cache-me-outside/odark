@@ -9,7 +9,9 @@
           <div class="dash-unit">
             <dtitle>Camera Feed</dtitle>
             <hr>
-            <img class="camera-stream" src="{{ url_for('dashboard.video_feed') }}">
+            <div class="cam-feed">
+              <img class="camera-stream" src="{{ url_for('dashboard.video_feed') }}">
+            </div>
           </div>
         </div>
 
@@ -41,6 +43,14 @@
 
         </div>
         <!-- END CLOCK BLOCK -->
+
+        <div class="col-md-4">
+          <div class="dash-unit">
+            <dtitle>Map</dtitle>
+            <hr>
+            <div class="map-container"></div>
+          </div>
+        </div>
         
       </div><!-- /row -->
   </div>

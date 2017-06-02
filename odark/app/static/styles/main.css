@@ -309,9 +309,22 @@ textarea {
 	background-color: #b2c831;
 }
 
+/********** Video Feed **********/
+.dash-unit .cam-feed {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
+/********** Map ****************/
+.map-container {
+	height: 100%;
+}
 
-
+.map-container #canvas {
+	border-radius: 50%;
+	border: 2px solid #fff;
+}
 /***********LineIcons Styles***********/
 
 
