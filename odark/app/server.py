@@ -3,12 +3,17 @@ from camera import VideoCamera
 from odark.engine.classifier import Classifier
 
 dashboard = Blueprint('dashboard', __name__)
-clf = Classifier()
+# clf = Classifier()
 
 @dashboard.route('/')
 def index():
     """Dashboard"""
     return render_template('index.html')
+
+@dashboard.route('/support')
+def support():
+    """Support"""
+    return render_template('support.html')
 
 def gen(camera):
     while True:
