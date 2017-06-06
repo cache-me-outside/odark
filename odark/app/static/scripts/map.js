@@ -9,7 +9,10 @@ const GMAPS_URL = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'
 			zoomControl: false,
 			scaleControl: false,
 			mapTypeControl: false,
-			streetViewControl: false
+			streetViewControl: false,
+			fullScreenControl: false,
+			rotateControl: false,
+			draggable: false
 		};
 
 		let el = document.createElement('div');
