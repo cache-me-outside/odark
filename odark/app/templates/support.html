@@ -2,8 +2,29 @@
 {% block content %}
   <div class="container">
     <!-- FIRST ROW OF BLOCKS -->     
-      <div class="row">
-        UNDER CONSTRUCTION
+      <div class="row">		
+		<form action="mailto:someone@example.com" method="post" enctype="text/plain">
+
+			<div class="form-group"> <!-- Name field -->
+				<label class="control-label " for="name">Name</label>
+				<input class="form-control" id="name" name="name" type="text"/>
+			</div>
+			
+			<div class="form-group"> <!-- Email field -->
+				<label class="control-label requiredField" for="email">Client ID<span class="asteriskField">*</span></label>
+				<input class="form-control" id="client_id" name="client_id" type="text"/>
+			</div>
+			
+			<div class="form-group"> <!-- Message field -->
+				<label class="control-label requiredField" for="issue">Issue<span class="asteriskField">*</span></label>
+				<textarea class="form-control" cols="40" id="issue" name="issue" rows="10"></textarea>
+			</div>
+			
+			<div class="form-group">
+				<button class="btn btn-primary" name="submit" type="submit">Submit</button>
+			</div>
+			
+		</form>	
       </div><!-- /row -->
   </div>
 {% endblock %}

@@ -43,6 +43,11 @@ h5 {
 	margin-left:5px;
 }
 
+/*********** SUPPORT PAGE ***********/
+.control-label {
+	color: #ffffff;
+}
+
 /***********BLOCKS & WRAPS***********/
 
 /*--- Dash Unit / Used in Dashboard page ---*/
@@ -328,6 +333,15 @@ textarea {
 	background-color: #b2c831;
 }
 
+.btn-primary {
+	background-color: #b2c831;
+	border-color: #8b9e1c;
+}
+
+.btn-primary:hover {
+	background-color: #8b9e1c;
+	border-color: #8b9e1c;
+}
 /********** Video Feed **********/
 .dash-unit .cam-feed {
 	display: flex;
