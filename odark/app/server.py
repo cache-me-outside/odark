@@ -3,7 +3,7 @@ from camera import VideoCamera
 from odark.engine.classifier import Classifier
 
 dashboard = Blueprint('dashboard', __name__)
-clf = Classifier()
+# clf = Classifier()
 
 @dashboard.route('/')
 def index():
