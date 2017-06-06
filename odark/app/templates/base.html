@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+    	<title>ODARK</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
+
+	    <!-- STYLES --> 
+	    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/bootstrap.css') }}">
+	    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+	   	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/font-style.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/flexslider.css') }}">
+
+      <!-- jQuery -->
+      <script type="text/javascript" src="{{ url_for('static', filename='scripts/jquery.js') }}"></script>
+  </head>
+  <body>
+  		{% include 'nav.html' %}
+  		{% block content %}{% endblock %}
+      {% include 'footer.html' %}
+  </body>
+
+  <!-- Place scripts at end for faster loading -->
+  <script type="text/javascript" src="{{ url_for('static', filename='scripts/clock.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='scripts/map.js') }}"></script>
+</html>

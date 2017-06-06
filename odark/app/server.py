@@ -10,6 +10,11 @@ def index():
     """Dashboard"""
     return render_template('index.html')
 
+@dashboard.route('/support')
+def support():
+    """Support"""
+    return render_template('support.html')
+
 def gen(camera):
     while True:
         frame = camera.get_frame()
